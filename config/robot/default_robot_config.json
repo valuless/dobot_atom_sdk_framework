@@ -1,0 +1,78 @@
+{
+    "robot": {
+        "ip": "192.168.8.234",
+        "port": 50051,
+        "timeout": 5.0,
+        "retry_count": 3,
+        "retry_delay": 1.0
+    },
+
+    "motion": {
+        "control_frequency": 100.0,
+        "max_joint_velocity": 2.0,
+        "max_joint_acceleration": 4.0,
+        "max_cartesian_velocity": 1.0,
+        "max_cartesian_acceleration": 2.0,
+        "joint_limits": {
+            "j1": [-3.14, 3.14],
+            "j2": [-1.57, 1.57],
+            "j3": [-3.14, 3.14],
+            "j4": [-3.14, 3.14],
+            "j5": [-1.57, 1.57],
+            "j6": [-3.14, 3.14]
+        },
+        "workspace_limits": {
+            "x": [-1.0, 1.0],
+            "y": [-1.0, 1.0],
+            "z": [0.0, 1.5]
+        }
+    },
+
+    "monitoring": {
+        "update_frequency": 50.0,
+        "enable_joint_monitoring": true,
+        "enable_system_monitoring": true,
+        "joint_temperature_threshold": 60.0,
+        "warning_temperature_threshold": 50.0,
+        "error_threshold": 1
+    },
+
+    "safety": {
+        "emergency_stop_timeout": 1.0,
+        "enable_all_rules": true,
+        "enable_auto_recovery": false,
+        "safety_margin": 0.05,
+        "collision_threshold": 0.1
+    },
+
+    "logging": {
+        "level": "INFO",
+        "enable_file_logging": true,
+        "log_file": "robot.log",
+        "max_log_size": "10MB",
+        "max_backup_count": 5
+    },
+
+    "dds": {
+        "domain_id": 0,
+        "participant_name": "robot_participant",
+        "network_interface": "eth0"
+    },
+
+    "trajectory": {
+        "smoothing_enabled": true,
+        "smoothing_time": 0.1,
+        "planning_time_limit": 5.0,
+        "enable_replanning": true
+    },
+
+    "fsm_modes": {
+        "idle": 100,
+        "ready": 101,
+        "emergency": 102,
+        "manual": 200,
+        "auto": 300,
+        "walking": 301,
+        "balance": 302
+    }
+}
